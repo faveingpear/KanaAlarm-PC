@@ -4,12 +4,13 @@ from bs4 import BeautifulSoup
 
 class Channel():
 
-	def __init__(self,name=None,id=None,pfp=None,streamingStatus=False,streamThumbnail=None):
+	def __init__(self,name=None,id=None,pfp=None,streamingStatus=False,streamThumbnail=None,prevStreamingStatus=None):
 		self.name = name
 		self.id = id
 		self.pfp = pfp
 		self.streamingStatus = streamingStatus
 		self.streamThumbnail = streamThumbnail
+		self.prevStreamingStatus = prevStreamingStatus
 
 		self.old_video_id_list = []
 
@@ -28,7 +29,6 @@ class Channel():
 
 						self.streamingStatus = True
 						print(self.name + " is online: " + str(self.streamingStatus))
-						return
 		else:
 			self.streamingStatus = False
 			print(self.name + " is offline")
